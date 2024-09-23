@@ -23,13 +23,15 @@ int main()
 
     Count = strlen("BBBB");
     Count = strlen("cccjd");
-    Count = strlen("한글자");
+    Count = strlen("한글");
 
     Count = StringCount("BBBB");
     Count = StringCount("cccjd");
     Count = StringCount("한글자");
 
-    int a = 0;
+    char str[] = "한글자";
+
+    int a = sizeof(str);
 
     return 0;
 }
