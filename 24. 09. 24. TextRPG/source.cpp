@@ -2,7 +2,7 @@
 #include <assert.h>
 
 const int LINECOUNT = 50;
-const int NAMELEN = 40;
+const int NAMELEN = 10;
 
 int PlayerAtt = 0;
 int PlayerHp = 0;
@@ -80,25 +80,23 @@ void MonsterStatusRender()
 
 int main()
 {
-    CreatePlayer("TestPlayer", 10, 100);
+    CreatePlayer("TestPlaye", 10, 100);
     CreateMonster("Orc", 10, 50);
 
     PlayerStatusRender();
     MonsterStatusRender();
 
-    CreatePlayer("23534624523424236235", 10, 100);
+    CreatePlayer("23534624", 10, 100);
     PlayerStatusRender();
-    CreatePlayer("erffwkljfhlfjkqe", 10, 100);
+    CreatePlayer("erff", 10, 100);
     PlayerStatusRender();
     CreatePlayer("r", 10, 100);
     PlayerStatusRender();
-    CreatePlayer("jkfdslhnvlkvshzblfdfsajklfhdfkla", 10, 100);
-    PlayerStatusRender();
-    //CreatePlayer("jkfdslhnvlkvshzblfdfsajklfhdfklajkfdslhnvlkvshzblfdfsajklfhdfkla", 10, 100);
-    //PlayerStatusRender();
-    CreatePlayer("123456789012345678901234567890123456789", 10, 100);
+    CreatePlayer("jkfdslhnv", 10, 100);
     PlayerStatusRender();
     CreatePlayer("gwe", 10, 100);
+    PlayerStatusRender();
+    CreatePlayer("123456789012345678901234567890123456789", 10, 100);
     PlayerStatusRender();
 
     MonsterStatusRender();
