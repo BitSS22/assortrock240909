@@ -2,55 +2,6 @@
 #include <assert.h>
 #include <random>
 
-int NumberCount(int _Value)
-{
-    if (!_Value)
-        return 1;
-
-    int Result = 0;
-
-    if (0 > _Value)
-        Result += 1;
-
-    while (_Value)
-    {
-        _Value /= 10;
-        ++Result;
-    }
-
-    return Result;
-}
-
-void NumberToString(char* Buffer, int BufferSize, int _Value)
-{
-    int count = NumberCount(_Value);
-
-    bool positiveNum = 0 <= _Value ? true : false;
-
-    if (2 > BufferSize || count + 1 > BufferSize)
-        assert(nullptr);
-
-    Buffer[count] = 0;
-
-    while (count)
-    {
-        --count;
-        int temp = _Value % 10;
-
-        if (0 <= temp)
-            Buffer[count] = temp + '0';
-        else
-            Buffer[count] = abs(temp) + '0';
-
-        _Value /= 10;
-    }
-
-    if (!positiveNum)
-        Buffer[0] = '-';
-
-    return;
-}
-
 // void Test(int temp, ...)
 // {
 //     __int64 adress = (__int64)&temp;
@@ -70,6 +21,9 @@ void NumberToString(char* Buffer, int BufferSize, int _Value)
 //     int c = 4;
 //     int d = 5;
 // };
+
+int NumberCount(int _Value);
+void NumberToString(char* Buffer, int BufferSize, int _Value);
 
 int main()
 {
@@ -122,4 +76,53 @@ int main()
     // Test(1, BIG(), 6, 7, 8);
 
     return 0;
+}
+
+int NumberCount(int _Value)
+{
+    if (!_Value)
+        return 1;
+
+    int Result = 0;
+
+    if (0 > _Value)
+        Result += 1;
+
+    while (_Value)
+    {
+        _Value /= 10;
+        ++Result;
+    }
+
+    return Result;
+}
+
+void NumberToString(char* Buffer, int BufferSize, int _Value)
+{
+    int count = NumberCount(_Value);
+
+    bool positiveNum = 0 <= _Value ? true : false;
+
+    if (2 > BufferSize || count + 1 > BufferSize)
+        assert(nullptr);
+
+    Buffer[count] = 0;
+
+    while (count)
+    {
+        --count;
+        int temp = _Value % 10;
+
+        if (0 <= temp)
+            Buffer[count] = temp + '0';
+        else
+            Buffer[count] = -temp + '0';
+
+        _Value /= 10;
+    }
+
+    if (!positiveNum)
+        Buffer[0] = '-';
+
+    return;
 }
