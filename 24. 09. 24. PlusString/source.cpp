@@ -26,13 +26,13 @@ void PlusString(char* _Buffer, int _BufferSize, const char* const _Value0, const
         ++count;
     }
 
-    while (count < str1Len + str2Len)
+    while (count < str1Len + str2Len + 1)
     {
         _Buffer[count] = _Value1[count - str1Len];
         ++count;
     }
 
-    _Buffer[str1Len + str2Len] = 0;
+    return;
 }
 
 int main()
