@@ -10,6 +10,9 @@ int NumberCount(int _Value)
 
     int Result = 0;
 
+    if (0 > _Value)
+        Result += 1;
+
     while (_Value)
     {
         _Value /= 10;
@@ -27,24 +30,28 @@ void NumberToString(char* Buffer, int BufferSize, int _Value)
 {
     int count = NumberCount(_Value);
 
+    bool positiveNum = 0 <= _Value ? true : false;
+
     if (2 > BufferSize || count + 1 > BufferSize)
         assert(nullptr);
 
     Buffer[count] = 0;
 
-    //if (0 == _Value)
-    //{
-    //    Buffer[0] = '0';
-    //    Buffer[1] = 0;
-    //    return;
-    //}
-
     while (count)
     {
         --count;
-        Buffer[count] = _Value % 10 + '0';
+        int temp = _Value % 10;
+
+        if (0 <= temp)
+            Buffer[count] = temp + '0';
+        else
+            Buffer[count] = abs(temp) + '0';
+
         _Value /= 10;
     }
+
+    if (!positiveNum)
+        Buffer[0] = '-';
 
     return;
 }
@@ -70,12 +77,14 @@ struct BIG
 };
 int main()
 {
-    // 5
-    int Result0 = NumberCount(12358);
-    // 4
-    int Result1 = NumberCount(5258);
-    // 7
-    int Result2 = NumberCount(5258111);
+    int Result = 0;
+    Result = NumberCount(12358);
+    Result = NumberCount(5258);
+    Result = NumberCount(5258111);
+    Result = NumberCount(0);
+    Result = NumberCount(-5);
+    Result = NumberCount(-3534);
+    Result = NumberCount(-57583);
 
     // 0은 영
 
@@ -85,8 +94,17 @@ int main()
     NumberToString(Buffer, 100, 0);
     NumberToString(Buffer, 100, 52342341);
     NumberToString(Buffer, 5, 3712);
+
+    NumberToString(Buffer, 6, -3453);
+    NumberToString(Buffer, 5, -1);
+    NumberToString(Buffer, 100, -351345135);
+    NumberToString(Buffer, 3, -1);
+
+    // 예외 처리 테스트
     // NumberToString(Buffer, 4, 7345);
-    // NumberToString(Buffer, 1, 0);
+    // NumberToString(Buffer, 1, 5);
+    // NumberToString(Buffer, 3, -34);
+    // NumberToString(Buffer, 2, -1);
 
     int size = sizeof(long double);
 
