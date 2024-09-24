@@ -142,6 +142,11 @@ int main()
         DamegeRender(PlayerName, MonsterName, PlayerAtt);
         DamegeRender(MonsterName, PlayerName, MonsterAtt);
         Input = _getch();
+
+        if (0 >= MonsterHp || 0 >= PlayerHp)
+            break;
     }
 
+    RenderStates();
+    printf_s("게임 종료");
 }
