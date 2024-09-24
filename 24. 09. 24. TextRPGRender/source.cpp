@@ -114,39 +114,36 @@ void DamegeRender(const char* const _AttName, const char* const _DefName, int _A
 
 int main()
 {
-    // char Test0[100] = "Player";
-    /*char Test1[50] = Test0;
-    Test1 = Test0*/;
+    char Input = ' ';
 
     CreatePlayer("1", 10, 100);
     CreateMonster("Orc", 10, 50);
 
     while (true)
     {
-        // 화면 전체를 지워라.
-        // 콘솔창에 다른 프로그램를 실행해주는 프로그램
-        system("cls");
-
-        char Input = ' ';
-
+        // screen 1
         RenderStates();
         Input = _getch();
 
+        // screen 2
         Damage(MonsterHp, PlayerAtt);
         RenderStates();
         DamegeRender(PlayerName, MonsterName, PlayerAtt);
         Input = _getch();
 
+        // screen 3
         Damage(PlayerHp, MonsterAtt);
         RenderStates();
         DamegeRender(PlayerName, MonsterName, PlayerAtt);
         DamegeRender(MonsterName, PlayerName, MonsterAtt);
         Input = _getch();
 
+        // end check
         if (0 >= MonsterHp || 0 >= PlayerHp)
             break;
     }
 
+    // game over
     RenderStates();
     printf_s("게임 종료");
 }
