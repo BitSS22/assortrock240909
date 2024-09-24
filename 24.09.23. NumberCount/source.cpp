@@ -1,8 +1,7 @@
 #include <iostream>
 #include <assert.h>
+#include <random>
 
-// 음수 안함
-// 0 이외의 양수의 자릿수를 세자.
 int NumberCount(int _Value)
 {
     if (!_Value)
@@ -22,10 +21,6 @@ int NumberCount(int _Value)
     return Result;
 }
 
-// 해도 되고 안해도 됩니다.
-// 내 기준으로 지금
-// _Value 를 넣어주면 Buffer에 
-// 숫자를 문자열로 만드는 함수.
 void NumberToString(char* Buffer, int BufferSize, int _Value)
 {
     int count = NumberCount(_Value);
@@ -56,28 +51,34 @@ void NumberToString(char* Buffer, int BufferSize, int _Value)
     return;
 }
 
-void Test(int temp, ...)
-{
-    __int64 adress = (__int64)&temp;
+// void Test(int temp, ...)
+// {
+//     __int64 adress = (__int64)&temp;
+// 
+//     for (size_t i = 0; i < 100; i += 8)
+//     {
+//         std::cout << *((int*)(adress + i)) << std::endl;
+//     }
+// 
+//     return;
+// }
+// 
+// struct BIG
+// {
+//     int a = 2;
+//     int b = 3;
+//     int c = 4;
+//     int d = 5;
+// };
 
-    for (size_t i = 0; i < 100; i += 8)
-    {
-        std::cout << *((int*)(adress + i)) << std::endl;
-    }
-
-    return;
-}
-
-struct BIG
-{
-    int a = 2;
-    int b = 3;
-    int c = 4;
-    int d = 5;
-};
 int main()
 {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dis(-1000000000, 1000000000);
+
     int Result = 0;
+
     Result = NumberCount(12358);
     Result = NumberCount(5258);
     Result = NumberCount(5258111);
@@ -90,9 +91,9 @@ int main()
 
     char Buffer[100] = "12373982463247912312412332122157878";
 
-    NumberToString(Buffer, 100, 3000);
-    NumberToString(Buffer, 100, 0);
-    NumberToString(Buffer, 100, 52342341);
+    NumberToString(Buffer, 300000, 3000);
+    NumberToString(Buffer, 2, 0);
+    NumberToString(Buffer, 10, 52342341);
     NumberToString(Buffer, 5, 3712);
 
     NumberToString(Buffer, 6, -3453);
@@ -106,9 +107,19 @@ int main()
     // NumberToString(Buffer, 3, -34);
     // NumberToString(Buffer, 2, -1);
 
-    int size = sizeof(long double);
+    // 임의 숫자 테스트
+    int randomNumber = 0;
+    for (size_t i = 0; i < 300; ++i)
+    {
+        randomNumber = dis(gen);
+        NumberToString(Buffer, 100, randomNumber);
+        Buffer;
+        std::cout << Buffer << std::endl;
+    }
 
-    Test(1, BIG(), 6, 7, 8);
+    // int size = sizeof(long double);
+
+    // Test(1, BIG(), 6, 7, 8);
 
     return 0;
 }
