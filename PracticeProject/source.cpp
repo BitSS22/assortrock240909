@@ -6,25 +6,62 @@
 
 using std::cout;
 using std::endl;
-using std::map;
-using std::make_pair;
-using std::vector;
 
+void Func(__int64 _value, ...)
+{
+	__int64* ptr = &_value;
+
+	__int64 otherPtr = (__int64)ptr;
+
+	cout << *((__int64*)otherPtr) << endl;
+
+	for (size_t i = 0; i < 30; i++)
+	{
+		otherPtr += 8;
+
+		cout << *((__int64*)otherPtr) << endl;
+	}
+
+
+	return;
+}
+
+struct BIG
+{
+public:
+	__int64 i64_0 = 1;
+	__int64 i64_1 = 2;
+	__int64 i64_2 = 3;
+	__int64 i64_3 = 4;
+};
+
+class parent
+{
+public:
+	int a = 0;
+};
+
+class child : parent
+{
+public:
+	int i = 0;
+
+public:
+	void test()
+	{
+		set();
+	};
+	void set() const
+	{
+		test();
+	};
+};
 
 int main()
 {
-	std::random_device rd;
-	std::mt19937_64 gen(rd());
-	std::uniform_int_distribution dist;
-	
-	while (true)
-	{
-		int seed = time(nullptr);
-		srand(seed);
-		std::cout << rand() << std::endl;
-	}
-	
-	
+	Func(__int64(30), BIG(), __int64(30));
 
+	child temp;
+	temp.a;
 	return 0;
 }

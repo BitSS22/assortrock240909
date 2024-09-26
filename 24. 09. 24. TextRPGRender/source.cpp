@@ -166,8 +166,8 @@ int main()
         if (getPlayerSpeed >= getMonsterSpeed)
         {
             //screen 3
-            system("cls");
             DamageLogic(MonsterHp, PlayerAtt);
+            system("cls");
             PlayerStatusRender();
             MonsterStatusRender();
             SpeedCheckRender(getPlayerSpeed, getMonsterSpeed);
@@ -175,8 +175,8 @@ int main()
             Input = _getch();
 
             //screen 4
-            system("cls");
             DamageLogic(PlayerHp, MonsterAtt);
+            system("cls");
             PlayerStatusRender();
             MonsterStatusRender();
             SpeedCheckRender(getPlayerSpeed, getMonsterSpeed);
@@ -186,18 +186,18 @@ int main()
         }
         else
         {
-            //screen 4
-            system("cls");
+            //screen 3
             DamageLogic(PlayerHp, MonsterAtt);
+            system("cls");
             PlayerStatusRender();
             MonsterStatusRender();
             SpeedCheckRender(getPlayerSpeed, getMonsterSpeed);
             DamageRender(MonsterName, PlayerName, MonsterAtt);
             Input = _getch();
 
-            //screen 3
-            system("cls");
+            //screen 4
             DamageLogic(MonsterHp, PlayerAtt);
+            system("cls");
             PlayerStatusRender();
             MonsterStatusRender();
             SpeedCheckRender(getPlayerSpeed, getMonsterSpeed);
