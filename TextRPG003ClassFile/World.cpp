@@ -18,7 +18,6 @@ void UWorld::InPlayer(class UPlayer& _Player)
 		bool loop = true;
 		while(loop)
 		{
-			//that:
 			printf_s("당신의 이름은 %s입니다. 결정하시겠습니까?\n", InputName);
 			printf_s("a. 결정\n");
 			printf_s("b. 재입력\n");
@@ -28,7 +27,7 @@ void UWorld::InPlayer(class UPlayer& _Player)
 			{
 			case 'a':
 			case 'A':
-				loop = false;
+				goto loopout;
 				break;
 			case 'b':
 			case 'B':
@@ -38,11 +37,11 @@ void UWorld::InPlayer(class UPlayer& _Player)
 				printf_s("잘못된 선택입니다. 다시 선택해주세요\n");
 				_getch();
 				system("cls");
-				//goto that;
 				break;
 			}
 		}
 	}
+	loopout:
 
 	// 마지막맵까지 여기서 이 방식으로 가면
 	// 마을에 있을때 FightZone은 없어도 된다.
