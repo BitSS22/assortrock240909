@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "PracticeProjectWinAPI.h"
+#include "assert.h"
 
 #define MAX_LOADSTRING 100
 
