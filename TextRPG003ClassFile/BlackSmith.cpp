@@ -39,13 +39,15 @@ void BlackSmith::InPlayer(class UPlayer& _Player/*, int& Result*/)
 
 void BlackSmith::Enhance(UPlayer& _Player)
 {
-	if (15 <= _Player.GetEquipAtt())
+	int PlayerEquip = _Player.GetEquipAtt();
+
+	if (15 <= PlayerEquip)
 	{
 		std::cout << "최대 강화 수치입니다." << std::endl;
 		return;
 	}
 
-	int PlayerEquip = _Player.GetEquipAtt();
+
 	int needGold = (PlayerEquip + 1) * 100;
 
 	if (_Player.GetGold() < needGold)
@@ -54,12 +56,12 @@ void BlackSmith::Enhance(UPlayer& _Player)
 		return;
 	}
 
-	bool Succese = rand() & 1;
 
+	bool Succese = rand() & 1;
 
 	if (Succese)
 	{
-		std::cout << "☆성공☆ 하였습니다." << std::endl;
+		std::cout << "☆ 성공 ☆ 하였습니다." << std::endl;
 		_Player.SetEquipAtt(++PlayerEquip);
 	}
 	else if (5 > PlayerEquip)
@@ -76,6 +78,7 @@ void BlackSmith::Enhance(UPlayer& _Player)
 		std::cout << "실패 하였습니다." << std::endl << "강화 단계가 초기화 됩니다." << std::endl;
 		_Player.SetEquipAtt(0);
 	}
+
 
 	std::cout << needGold << "Gold 감소." << std::endl;
 	_Player.SetGold(_Player.GetGold() - needGold);
