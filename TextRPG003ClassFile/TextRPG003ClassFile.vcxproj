@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,8 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EngineConst.cpp" />
-    <ClCompile Include="EngineDebug.cpp" />
+    <ClCompile Include="BlackSmith.cpp" />
+    <ClCompile Include="ContentsConst.cpp" />
     <ClCompile Include="FightUnit.cpp" />
     <ClCompile Include="FightZone.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -142,8 +143,8 @@
     <ClCompile Include="Zone.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineConst.h" />
-    <ClInclude Include="EngineDebug.h" />
+    <ClInclude Include="BlackSmith.h" />
+    <ClInclude Include="ContentsConst.h" />
     <ClInclude Include="FightUnit.h" />
     <ClInclude Include="FightZone.h" />
     <ClInclude Include="Item.h" />
@@ -154,6 +155,11 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Zone.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseSystem\BaseSystem.vcxproj">
+      <Project>{0acebf45-8515-409b-99de-190cd392a6fc}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

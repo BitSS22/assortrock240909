@@ -2,10 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="TextRPG003ClassFile.cpp" />
-    <ClCompile Include="EngineConst.cpp">
-      <Filter>0_Base</Filter>
-    </ClCompile>
-    <ClCompile Include="EngineDebug.cpp">
+    <ClCompile Include="ContentsConst.cpp">
       <Filter>0_Base</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
@@ -38,6 +35,9 @@
     <ClCompile Include="StatusUnit.cpp">
       <Filter>2_Contents\0_ContentsBase</Filter>
     </ClCompile>
+    <ClCompile Include="BlackSmith.cpp">
+      <Filter>2_Contents\2_Map\Building</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="0_Base">
@@ -61,12 +61,12 @@
     <Filter Include="2_Contents\0_ContentsBase">
       <UniqueIdentifier>{42453fe8-3e4e-4656-9f32-c3d572a0669e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="2_Contents\2_Map\Building">
+      <UniqueIdentifier>{8d95b627-1667-4879-80c3-24430aa23e1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineConst.h">
-      <Filter>0_Base</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineDebug.h">
+    <ClInclude Include="ContentsConst.h">
       <Filter>0_Base</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
@@ -98,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="StatusUnit.h">
       <Filter>2_Contents\0_ContentsBase</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackSmith.h">
+      <Filter>2_Contents\2_Map\Building</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

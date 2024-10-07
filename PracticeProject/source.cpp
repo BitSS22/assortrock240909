@@ -1,16 +1,43 @@
-class temp
+class parent
 {
 public:
-	int a;
+	int i = 0;
+
+	virtual int funci64(__int64 _value)
+	{
+		return 0;
+	}
+	virtual int funci(int _value)
+	{
+		return 0;
+	}
+	virtual int funcf(float _value)
+	{
+		return 0;
+	}
 };
 
-void func();
+class child : public parent
+{
+	float f = 0.f;
+
+	int funci64(__int64 _value)
+	{
+		return 0;
+	}
+	int funci(int _value)
+	{
+		return 0;
+	}
+	int funcf(float _value)
+	{
+		return 0;
+	}
+};
+
 int main()
 {
-	temp a = {};
-	
-	func();
+	child inst = {};
 
 	return 0;
-
 }
